@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  hello-world:
+    build: .
+    container_name: hello-world-container
+    command: ["python", "hello.py"]
+
+# $> docker-compose up --build

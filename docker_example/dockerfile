@@ -1,0 +1,20 @@
+# Use the official Python base image from the Docker Hub
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Run the Python script
+CMD ["python", "hello.py"]
+
+# To Run locally
+# $> docker build -t hello-world .
+# $> docker run hello-world
+
+# To use with kubernetes
+# $> docker login
+# $> docker push your-dockerhub-username/hello-world
+
