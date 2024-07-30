@@ -40,7 +40,7 @@ from typing import List
 class Solution:
     def luckyNumbers2(self, matrix: List[List[int]]) -> List[int]:
         """
-        The main.py idea is to find common elements in the minimum values per row (map(min,matrix)) and maximum per column (map(max,zip(*matrix))) using the intersection operator & between sets.
+        The main idea is to find common elements in the minimum values per row (map(min,matrix)) and maximum per column (map(max,zip(*matrix))) using the intersection operator & between sets.
 
         The first set is generated using the map(fn, iter) function. It applies the function fn to the iterable iter. In the case of map(min,matrix), it will return the
         minimum of each row of matrix.
