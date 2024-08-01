@@ -51,7 +51,6 @@ class Solution:
         #         res.append([st])
         # return res
 
-
         # O(n log n) based on the sort
         # Hashmap based on the sorted string.  Anagrams will have matching sorted strings.
         seen = {}
@@ -62,10 +61,6 @@ class Solution:
             else:
                 seen[key] = [st]
         return [x for x in seen.values()]
-
-
-
-
 
 
 if __name__ == "__main__":
