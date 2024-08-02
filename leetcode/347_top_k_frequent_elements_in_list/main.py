@@ -25,10 +25,23 @@ Constraints:
 Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 """
 
+from collections import Counter
 from typing import List
 
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        from collections import Counter
-        return [x[0] for x in Counter(nums).most_common(k)]
+        return [x for x, y in Counter(nums).most_common(k)]
+        # Counter is linear as are list comprehensions so this solution is O(N)
+
+
+if __name__ == "__main__":
+    s = Solution()
+
+    nums = [1, 1, 1, 2, 2, 3]
+    k = 2
+    print(s.topKFrequent(nums, k))
+
+    nums = [1]
+    k = 1
+    print(s.topKFrequent(nums, k))
