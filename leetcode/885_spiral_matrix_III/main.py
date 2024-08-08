@@ -45,8 +45,9 @@ class Solution:
         Keep track of the number of valid coordinates we've encountered, and when that equals the total number of
         valid coordinates we're done.
 
-        O(max(rows, cols)^2) == O(N^2) time complexity
-        O(rows*cols) == O(N) space complexity
+        Let N be the number of Rows and M be the number of Columns
+        O(max(N,M)^2) time complexity
+        O(N*M) for the result array in extra space
 
         :param rows: Number of rows in matrix
         :param cols: Number of columns in matrix
