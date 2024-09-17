@@ -1,7 +1,8 @@
 """
 Given an array of integers nums, sort the array in ascending order and return it.
 
-You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible.
+You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest
+space complexity possible.
 
 
 
@@ -9,7 +10,8 @@ Example 1:
 
 Input: nums = [5,2,3,1]
 Output: [1,2,3,5]
-Explanation: After sorting the array, the positions of some numbers are not changed (for example, 2 and 3), while the positions of other numbers are changed (for example, 1 and 5).
+Explanation: After sorting the array, the positions of some numbers are not changed (for example, 2 and 3), while the
+positions of other numbers are changed (for example, 1 and 5).
 Example 2:
 
 Input: nums = [5,1,1,2,0,0]
@@ -119,4 +121,58 @@ class Solution:
             exp *= 10
 
         return arr
+
+    def mergeSort(self, arr, l, r):
+        if l < r:
+            # Same as (l+r)//2, but avoids overflow for
+            # large l and h
+            m = l + (r - l) // 2
+
+            # Sort first and second halves
+            self.mergeSort(arr, l, m)
+            self.mergeSort(arr, m + 1, r)
+            self.merge(arr, l, m, r)
+
+    def merge(self, arr, l, m, r):
+        n1 = m - l + 1
+        n2 = r - m
+
+        # create temp arrays
+        L = [0] * (n1)
+        R = [0] * (n2)
+
+        # Copy data to temp arrays L[] and R[]
+        for i in range(0, n1):
+            L[i] = arr[l + i]
+
+        for j in range(0, n2):
+            R[j] = arr[m + 1 + j]
+
+        # Merge the temp arrays back into arr[l..r]
+        i = 0  # Initial index of first subarray
+        j = 0  # Initial index of second subarray
+        k = l  # Initial index of merged subarray
+
+        while i < n1 and j < n2:
+            if L[i] <= R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        # Copy the remaining elements of L[], if there
+        # are any
+        while i < n1:
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        # Copy the remaining elements of R[], if there
+        # are any
+        while j < n2:
+            arr[k] = R[j]
+            j += 1
+            k += 1
 
