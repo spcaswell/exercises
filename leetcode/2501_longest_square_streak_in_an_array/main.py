@@ -61,7 +61,7 @@ class Solution:
                 seq = [nums[index]]
         print(seq)
         if max_count == 0:
-            return -1 # no square streak found
+            return -1  # no square streak found
         else:
             return max_count + 1  # account for the first term
 
