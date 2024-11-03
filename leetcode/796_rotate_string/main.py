@@ -43,6 +43,8 @@ class Solution:
         If s can be rotated to goal then goal must be a substring of s + s.  Also, s and goal must be of equal
         length.
 
+        Corollary: Append a string to itself to create all possible rotations of a string.
+
         :param s:
         :param goal:
         :return:
