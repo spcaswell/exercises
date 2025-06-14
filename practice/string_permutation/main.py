@@ -66,6 +66,10 @@ def perm_search(s: str, b: str) -> Set[str]:
 
 
 def counter_perm_search(s: str, b: str) -> Set[str]:
+    """
+        Given two strings s and b, such that len(s) <= len(b), find all permutations of s in b
+        Now with Counters!!
+    """
     left = 0
     perms = set()
     letter_check = Counter(s)
