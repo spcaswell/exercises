@@ -40,7 +40,7 @@ from typing import List
 
 
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: List[int], target: int):
         """
         Use a hashmap to run in O(N) time, but O(N) extra space
         :param nums: The array of numbers
@@ -48,20 +48,21 @@ class Solution:
         :return: The indexes of the values in nums that add up to target.
         """
         seen = {}
+        pairs = []
 
         for i, n in enumerate(nums):
             diff = target - n
             if diff in seen:
-                return [seen[diff], i]
+                pairs.append((seen[diff], i))
             seen[n] = i
-        return []
+        return pairs
 
     def slow_twoSum(self, nums: List[int], target: int)  -> List[int]:
         """
         O(N^2) time complexity, but no additional memory
         :param nums: The array of numbers
         :param target: The target sum
-        :return: The indexes of the values in nums that add up to target.
+        :return: The indexes of the first values in nums found that add up to target.
         """
         l = len(nums)
         for i in range(l):
@@ -74,8 +75,9 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
 
-    nums = [2, 7, 11, 15]
+    nums = [2, 7, 11, 15, 0, 9]
     print(s.slow_twoSum(nums, 9))
+    print(s.twoSum(nums, 9))
 
     nums = [3, 2, 4]
     print(s.slow_twoSum(nums, 6))
